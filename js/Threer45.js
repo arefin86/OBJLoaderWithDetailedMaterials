@@ -2,6 +2,7 @@
 // 477-485: Commented out the entire TrackBallControls function.
 // 57-63 : Added new properties to Object3D.
 // 567-569-580 : Added a new variable in loadajaxbuffer function, which holds the assetData.
+var MODELERROR;
 var THREE = THREE || {};
 
 if (!self.Int32Array)self.Int32Array = Array,self.Float32Array = Array;
@@ -1433,7 +1434,7 @@ THREE.Geometry.prototype = {constructor:THREE.Geometry,applyMatrix:function(b) {
         e.vertexNormals[1].copy(f[e.b]),e.vertexNormals[2].copy(f[e.c]),e.vertexNormals[3].copy(f[e.d]))
 },computeTangents:function() { //COMPUTE TANGENTS - THE TROUBLE MAKER //
     function b(b, c, e, f, k, h, o) {
-		/*if (m)*/{
+		/*if (m)*/try{
         n = b.vertices[c].position;
         t = b.vertices[e].position;
         u = b.vertices[f].position;
@@ -1459,8 +1460,9 @@ THREE.Geometry.prototype = {constructor:THREE.Geometry,applyMatrix:function(b) {
         Z[c].addSelf(P);
         Z[e].addSelf(P);
         Z[f].addSelf(P);
-		}
-    }
+		} catch(e) { MODELERROR = true; }
+    } 
+	
 
     var c,e,f,h,k,m,n,t,u,v,p,x,w,A,z,y,C,E,D,F,M,N,G,H,K = [],Z = [],L = new THREE.Vector3,P = new THREE.Vector3,U = new THREE.Vector3,Y = new THREE.Vector3,X = new THREE.Vector3;
     c = 0;
@@ -6626,7 +6628,7 @@ THREE.Loader.prototype = {constructor:THREE.Loader,addStatusElement:function() {
         m = new THREE.ShaderMaterial({fragmentShader:u.fragmentShader,vertexShader:u.vertexShader,uniforms:v,lights:!0,fog:!0})
     } else m = new THREE[n](m);
     return m
-	console.log(m);
+
 }};
 THREE.BinaryLoader = function(b) {
     THREE.Loader.call(this, b)

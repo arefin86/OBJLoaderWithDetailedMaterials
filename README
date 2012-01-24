@@ -1,1 +1,5 @@
-This project uses Three.js to load .obj files onto a webpage
+This project uses Three.js to load .obj files onto a webpage.
+The HTML file to be run is in WebContent - advancedMaterialLoader001.html
+The JavaScript files are in /js
+The models ( binary ) with maps are in /models
+The original .obj and .mtl are in /OBJs_with_textures

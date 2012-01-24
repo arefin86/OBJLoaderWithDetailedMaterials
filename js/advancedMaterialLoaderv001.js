@@ -12,7 +12,7 @@
 
 			var theta = 0.0;
 			var alpha = 0.0;
-			var r =150;
+			var r =100;
 			var l = 5000;
 			
 			init();
@@ -74,6 +74,7 @@
 
 				
 				var material = new THREE.MeshFaceMaterial();
+				material.lightsEnabled - true;
 				
 			
 				
@@ -83,8 +84,8 @@
 				loader = new THREE.BinaryLoader( true );
 				document.body.appendChild( loader.statusDomElement );
 
-				loader.load( { model: "../models/n.js", callback: function( geometry ) { createScene( geometry, material ) } } );
-				
+				loader.load( { model: "../models/ferrari.js", callback: function( geometry ) { createScene( geometry, material ) } } );
+				loader.load( { model: "../models/teapot.js", callback: function( geometry ) { createScene( geometry, material ) } } );
 				
 				lightBall = new THREE.Mesh(new THREE.SphereGeometry(3,20,20), new THREE.MeshBasicMaterial({color: 0xfff001}));
 				scene.add(lightBall);

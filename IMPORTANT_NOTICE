@@ -1,0 +1,2 @@
+For some reason, the python script writes single quotes < ' > instead of < " > in the map wrap parameters. Incase your you get an "unexpected token error " -
+Open the corresponding JSON and replace all < ' > with < " >. 
